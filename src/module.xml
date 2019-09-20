@@ -1,0 +1,38 @@
+<module version="2.0">
+	<meta>
+		<identity>
+			<uri>urn:cw:netkernel:services</uri>
+			<version>1.1.1</version>
+		</identity>
+		<info>
+			<name>Cw_Netkernel</name>
+			<description></description>
+		</info>
+	</meta>
+	<system>
+		<dynamic/>
+	</system>
+
+    <rootspace uri="urn:cw:cw-netkernel:services" public="true">
+        <literal uri="res:/etc/system/SimpleDynamicImportHook.xml" type="xml">
+            <connection><type>HTTPFulcrum</type></connection>
+        </literal>
+        <accessor>
+            <grammar>
+                res:/cw-netkernel/nasa/
+                <group name="year"><regex type="alphanum"/></group>/
+                <group name="month"><regex type="alphanum"/></group>/
+                <group name="day"><regex type="alphanum"/></group>
+            </grammar>
+            <class>cw.netkernel.services.Nasa</class>
+        </accessor>
+        <accessor>
+            <grammar>
+                res:/cw-netkernel/wikimedia/
+                <group name="query"><regex type="anything"/></group>
+            </grammar>
+            <class>cw.netkernel.services.Wikimedia</class>
+        </accessor>
+    </rootspace>
+
+</module>

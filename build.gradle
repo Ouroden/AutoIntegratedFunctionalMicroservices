@@ -1,0 +1,48 @@
+apply plugin: 'netkernel'
+apply plugin: 'eclipse'
+
+apply plugin: 'java'
+apply plugin: 'application'
+//apply plugin: 'com.github.johnrengelman.shadow', version: '1.2.3'
+
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven {
+			url "http://maven.netkernel.org/netkernel-maven"
+		}
+	}
+	dependencies {
+		classpath group: 'urn.org.netkernel', name: 'gradle.plugin', version: '[1.1.4,)'
+	}
+}
+
+
+
+dependencies {
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    compile group: 'org.json', name: 'json', version: '20090211'
+	compile group: 'io.vertx', name: 'vertx-core', version: '3.3.3'
+	compile group: 'io.vertx', name: 'vertx-web', version: '3.3.3'
+	compile group: 'io.vertx', name: 'vertx-sync', version: '3.3.3'
+}
+
+mainClassName = 'cw.vertx.Load'
+
+netkernel {
+	useMavenCentral()
+	useMavenNK()
+	useStandardCompileDependencies()
+	download {
+        	edition = "SE"
+        	username = "foo"
+        	password = "baa"
+	}
+        instances {
+    		NK {
+			edition = "SE"
+			location = "../NKSE-5.2.1/"
+		}
+	}
+}
