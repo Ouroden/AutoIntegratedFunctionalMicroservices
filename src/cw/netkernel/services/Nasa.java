@@ -10,8 +10,8 @@ import java.net.URLConnection;
 import java.io.*;
 
 public class Nasa extends StandardAccessorImpl {
-	//static String API_KEY = "MaqPDdbGPOTsIU3nSjF9ayrAQQ5zEYoY4ApiNSwz";
-	static String API_KEY = "API_KEY";
+	static String API_KEY = "MaqPDdbGPOTsIU3nSjF9ayrAQQ5zEYoY4ApiNSwz";
+//	static String API_KEY = "API_KEY";
 
     @Override
 	public void onSource(INKFRequestContext aContext) throws Exception {
